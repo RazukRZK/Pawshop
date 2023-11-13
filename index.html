@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="images/logo/logoWhite.svg" type="image/x-icon">
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
+<body data-bs-theme="ligth">
     <div id="root" class="container-fluid p-0 m-0">
         <header>
             <nav class="navbar navbar-expand-md">
@@ -32,6 +32,13 @@
                       <li class="nav-item">
                         <a class="nav-link" href="#">Contatos</a>
                       </li>
+                      <li class="nav-item">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" type="checkbox" role="switch" id="botaoTema">
+                          <label id="temaAtualClaro" class="form-check-label" for="botaoTema">Tema: Claro</label>
+                          <label id="temaAtualEscuro" class="form-check-label" for="botaoTema">Tema: Escuro</label>
+                        </div>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -43,13 +50,19 @@
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="images/banner/banner.png" class="d-block w-100" alt="Border Collie na praia">
+                        <img src="images/banner/bannerMobile/bannerMobile.png" class="img-fluid d-md-none w-100" alt="Border Collie na praia">
+                        <img src="images/banner/bannerTablet/bannerTablet.png" class="img-fluid d-none d-md-block d-xl-none w-100" alt="Border Collie na praia">
+                        <img src="images/banner/banner.png" class="img-fluid d-none d-md-none d-xl-block w-100" alt="Border Collie na praia">
                       </div>
                       <div class="carousel-item">
-                        <img src="images/banner/banner2.png" class="d-block w-100" alt="Golden Filhote">
+                        <img src="images/banner/bannerMobile/bannerMobile2.png" class="img-fluid d-md-none w-100" alt="Golden Filhote">
+                        <img src="images/banner/bannerTablet/bannerTablet2.png" class="img-fluid d-none d-md-block d-xl-none w-100" alt="Golden Filhote">
+                        <img src="images/banner/banner2.png" class="img-fluid d-none d-md-none d-xl-block w-100" alt="Golden Filhote">
                       </div>
                       <div class="carousel-item">
-                        <img src="images/banner/banner3.png" class="d-block w-100" alt="Border Collie na natureza">
+                        <img src="images/banner/bannerMobile/bannerMobile3.png" class="img-fluid d-md-none w-100" alt="Border Collie na natureza">
+                        <img src="images/banner/bannerTablet/bannerTablet3.png" class="img-fluid d-none d-md-block d-xl-none w-100" alt="Border Collie na natureza">
+                        <img src="images/banner/banner3.png" class="img-fluid d-none d-md-none d-xl-block w-100" alt="Border Collie na natureza">
                       </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -89,7 +102,7 @@
 
             <section id="catalogoSection" class="container-fluid p-0 my-1 mx-0">
                 <h3 class="my-4 text-center" style="color: var(--laranja);">CATÁLOGO DE PRODUTOS</h3>
-                <div id="catalogoProdutos" class="container-fluid d-flex justify-content-center gap-4">
+                <div id="catalogoProdutos" class="container-fluid d-flex justify-content-center gap-4 flex-wrap">
                     <!-- Coleira -->
                     <div class="card p-2 text-center" style="width: 20rem; border-radius: 0%;">
                         <img style="border-radius: 0%;" src="images/products/productImage.png" class="card-img-top" alt="Um cachorro de coleira">
@@ -149,38 +162,42 @@
 
 
             </section>
-
-            <section id="adoteSection" class="container-fluid p-0 my-1 mx-0" >
+        
+            <section id="formularioSection" class="container-fluid p-0 my-1 mx-0">
               <h3 class="my-4 text-center" style="color: var(--rosa);">ADOTE UM PET</h3>
-              <div id="Informacoes" class="w-100 row p-0 m-0 align-items-center">
-                <div class="col-6  m-0 px-5">
-                  <p class="text-center" style="color: var(--azul); font-size: 26px;">Insira aqui as suas informações para que possamos encontrar um amigo para você!</p>
-                  <form>
-                    <div class="d-flex flex-column align-items-center gap-4">
-                      <div class="d-flex flex-column gap-1" style="width: 65%;">
-                        <label style="font-weight:700;" for="email">Email</label>
-                        <input class="p-1" type="email" name="email" id="email" placeholder="Insira seu E-mail">
+              <div id="formularioGrupo" class="d-flex container-fluid p-0 m-0">
+                
+                <aside id="formulario" class="p-0 d-flex flex-column justify-content-center">
+                  <h4 class="text-center" style="color: var(--azul);">Insira aqui as suas informações para que possamos encontrar um amigo para você!</h4>
+                  <div id="divForm" class="container w-75">
+                    <form action="index.html" method="post">
+                      <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Insira seu Email" aria-describedby="emailHelp">
                       </div>
-                      <div class="d-flex flex-column gap-1"  style="width: 65%;">
-                        <label style="font-weight: bold;" for="tefefone">Telefone</label>
-                        <input class="p-1" type="tel" name="tefefone" id="tefefone" placeholder="Insira seu Telefone">
+                      <div class="mb-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="tel" class="form-control" id="telefone" placeholder="Insira seu telefone">
+                        <div id="telHelp" class="form-text">Digite o número com ddd +xx (yy) 99999-9999.</div>
                       </div>
-                    </div>
-                    <div class="d-flex justify-content-center my-5">
-                      <input type="checkbox" id="marca">
-                      <label class="mx-2" for="marca">Aceitar receber notificação</label>
-                    </div>
-                    <div class="d-flex">
-                      <input style="font-weight: bold; background-color: var(--azul); border: none; border-radius: 5px;" type="button" value="Enviar" class="mx-auto p-2">
-                    </div>
-                  </form>
-                </div>
-                <div class="col-6 m-0 p-0">
-                  <img src="images/imgBanner.png" class="w-100" alt="um cara abraçando o cachorro">
-                </div>
-              </div>
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Aceita receber as notificações</label>
+                      </div>
+                      <div class="mb-3 text-center">
+                        <button type="submit" class="btn btn-primary px-4" style="background-color: var(--azul); border: none;">Enviar</button>
+                      </div>
+                    </form>
+                  </div>
+                </aside>
+
+                <aside id="formularioBanner" class="p-0">
+                  <img class="w-100" src="images/imgBanner.png" alt="">
+                </aside>
+              </div>            
             </section>
-        </main>
+          
+          </main>
 
         <footer class="text-center py-3">
             <h5>Todos os direitos reservados a @PawShop - 2023</h5>
@@ -274,5 +291,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
